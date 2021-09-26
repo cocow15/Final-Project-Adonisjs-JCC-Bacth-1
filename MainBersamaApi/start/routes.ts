@@ -49,11 +49,11 @@ Route.group(() =>{
       Route.get('/schedules', 'BookingsController.schedule').as('user.schedules')
       Route.get('/bookings', 'BookingsController.index').as('bookings.index')
       Route.get('/bookings/:id', 'BookingsController.show').as('bookings.show')
-      Route.put('/bookings/:id', 'BookingsController.join').as('bookings.join')
+      Route.put('/bookings/:id/join', 'BookingsController.join').as('bookings.join')
     })
 
   }).middleware(['auth', 'verify'])
   Route.post('/register', 'AuthController.register').as('auth.register')
   Route.post('/login', 'AuthController.login').as('auth.login')
-  Route.post('/verifikasi-otp', 'AuthController.otpConfirmation').as('auth.otpVerify')
+  Route.post('/otp-confirmation', 'AuthController.otpConfirmation').as('auth.otpVerify')
 }).prefix('/api/v1')

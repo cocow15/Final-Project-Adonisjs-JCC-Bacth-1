@@ -9,7 +9,35 @@ import {
   hasMany,
   HasMany
 } from '@ioc:Adonis/Lucid/Orm'
-
+/**
+ *  @swagger
+ *  definitions:
+ *    User:
+ *      type: object
+ *      properties:
+ *        id:
+ *          type: uint
+ *          readOnly: true
+ *        name:
+ *          type: string
+ *        email:
+ *          type: string
+ *        password:
+ *          type: string
+ *        rememberMeToken:
+ *          type: string
+ *          readOnly: true
+ *        role:
+ *          type: string
+ *        isVerified:
+ *          type: boolean
+ *          readOnly: true
+ *      required:
+ *        - name
+ *        - email
+ *        - password
+ *        - role
+ */
 import Booking from 'App/Models/Booking'
 
 export default class User extends BaseModel {

@@ -7,6 +7,39 @@ import Database from '@ioc:Adonis/Lucid/Database'
 
 //OQ.uEO0yKEJAXzbMPe9T2I91gTr5O845zOCDsFR_Po71zlobol7kQir5yj3zC5e
 export default class AuthController {
+    /**
+   *
+   * @swagger
+   * /api/v1/register:
+   *  post:
+   *    summary: Register User baru.
+   *    description: |
+   *      Role terdiri dari 2 yaitu 'user' dan 'owner'
+   *      1. User : pengguna biasa yang dapat melakukan booking ke satu field.
+   *              Dapat melakukan join/unjoin ke booking tertentu.
+   *      2. Owner: pemilik venue yang menyewakan lapangan untuk dibooking.
+   *              Dapat melakukan booking ke satu field dan join/unjoin.
+   *    tags:
+   *      - Auth
+   *    requestBody:
+   *      required : true
+   *      content :
+   *        application/x-www-form-urlencoded:
+   *          schema:
+   *            $ref: '#definitions/User'
+   *        application/json:
+   *          schema:
+   *            $ref: '#definitions/User'
+   *    responses:
+   *       201:
+   *         description: Akun dibuat
+   *         content:
+   *            application/json:
+   *               example:
+   *                 message: "Registrasi berhasil, harap cek email anda"
+   *       422:
+   *         description: Registrasi Gagal
+   */
     public async register({request, response}:HttpContextContract){
         try {
             const data = await request.validate(UserValidator)
@@ -28,6 +61,38 @@ export default class AuthController {
         }
     }
 
+    /**
+   *
+   * @swagger
+   * /api/v1/otp-confirmation:
+   *  post:
+   *    summary: Verifikasi akun.
+   *    description: Verifikasi akun yang telah dibuat berdasarkan kode otp pada email
+   *    tags:
+   *      - Auth
+   *    requestBody:
+   *      required : true
+   *      content :
+   *       application/x-www-form-urlencoded:
+   *          schema:
+   *            $ref: '#/components/schemas/otpConfirmation'
+   *       application/json:
+   *          schema:
+   *            $ref: '#/components/schemas/otpConfirmation'
+   *    responses:
+   *       200:
+   *         description: Akun sudah terverifikasi
+   *         content:
+   *            application/json:
+   *                example:
+   *                   message: "Berhasil konfirmasi OTP"
+   *       400:
+   *         description: gagal verifikasi OTP
+   *         content:
+   *            application/json:
+   *              example:
+   *                 message: "Gagal verifikasi OTP"
+   */
     public async otpConfirmation({request, response}:HttpContextContract){
         let otp_code = request.input('otp_code')
         let email = request.input('email')
@@ -46,6 +111,41 @@ export default class AuthController {
 
     }
 
+    /**
+   *
+   * @swagger
+   * /api/v1/login:
+   *  post:
+   *    summary: Login User.
+   *    description: Login user untuk mendapatkan token
+   *    tags:
+   *      - Auth
+   *    requestBody:
+   *      required : true
+   *      content :
+   *       application/x-www-form-urlencoded:
+   *          schema:
+   *            $ref: '#/components/schemas/loginSchema'
+   *       application/json:
+   *          schema:
+   *            $ref: '#/components/schemas/loginSchema'
+   *    responses:
+   *       200:
+   *         description: Mendapatkan token login
+   *         content:
+   *            application/json:
+   *              example:
+   *                 message: "Login sukses"
+   *                 token: "MTU._l1TaNljgyqRLF0dX4IIkvcf22CfTJcNcdx-bfY2ZeFSGRogCIogGXi7q4K3"
+   *                 role: "owner"
+   *       422:
+   *         description: Gagal login
+   *         content:
+   *            application/json:
+   *              example:
+   *                 message: "Login gagal"
+   *                 error: "E_INVALID_AUTH_PASSWORD: Password mis-match"
+   */
     public async login({request, response, auth}:HttpContextContract){
         try {
             const userSchema = schema.create({
