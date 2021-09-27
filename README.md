@@ -1,8 +1,11 @@
 # Final-Project-Adonisjs-JCC-Bacth-1
-Kelas : Nodejs Backend Dev With Adonis >
-Batch : 1 >
-Teknis Pengerjaan: Individu >
-Deadline: Senin, 27 September 2021 23.59 WIB >>
+Kelas : Nodejs Backend Dev With Adonis 
+
+Batch : 1 
+
+Teknis Pengerjaan: Individu 
+
+Deadline: Senin, 27 September 2021 23.59 WIB 
 
 # Restful API Main Bareng 
 ## Overview
@@ -10,18 +13,25 @@ Aplikasi Main Bareng untuk mempertemukan pemuda-pemuda yang ingin berolahraga ti
 
 ### Definisi: 
 1. User
-Atribut tabel users: id, name, password, email, role
+
+* Atribut tabel users: id, name, password, email, role
 Data pengguna aplikasi. Terdapat 2 role: ‘user’, ‘owner’. 
 * user : pengguna biasa yang dapat melakukan booking ke satu field. Dapat melakukan join/unjoin ke booking tertentu.
 * owner: pemilik venue yang menyewakan lapangan (field) untuk dibooking.
 2. Venue
+
 Atribut tabel venues: id, name, address, phone
+
 Data tempat sarana olahraga. Dapat berupa kompleks olahraga yang memiliki lebih dari satu lapangan (field) dan jenis olahraga. 
 3. Field
+
 Atribut tabel fields: id, name, type
+
 Field adalah bagian dari Venue. Setiap field akan memiliki type yaitu jenis olahraga yang dimainkan di antaranya : soccer, minisoccer, futsal, basketball, volleyball 
 4. Booking
+
 Atribut tabel bookings: id, user_id, play_date_start, play_date_end, field_id
+
 Booking adalah jadwal penyewaan atau jadwal main user di field/venue tertentu.
 
 
