@@ -1,37 +1,35 @@
 # Final-Project-Adonisjs-JCC-Bacth-1
-Kelas : Nodejs Backend Dev With Adonis 
+Kelas : Nodejs Backend Dev With Adonis >
+Batch : 1 >
+Teknis Pengerjaan: Individu >
+Deadline: Senin, 27 September 2021 23.59 WIB >>
 
-Batch : 1
+# Restful API Main Bareng 
+## Overview
+Aplikasi Main Bareng untuk mempertemukan pemuda-pemuda yang ingin berolahraga tim (futsal/voli/basket/minisoccer/soccer) dan booking tempat bersama.
 
-Teknis Pengerjaan: Individu
-
-Deadline: Senin, 27 September 2021 23.59 WIB
-
-Restful API Main Bareng 
-Overview
-Aplikasi Main Bareng untuk mempertemukan pemuda-pemuda yang ingin berolahraga tim (futsal/voli/basket/minisoccer/soccer) dan booking tempat bersama. 
-Definisi: 
-User
+### Definisi: 
+1. User
 Atribut tabel users: id, name, password, email, role
 Data pengguna aplikasi. Terdapat 2 role: ‘user’, ‘owner’. 
-user : pengguna biasa yang dapat melakukan booking ke satu field. Dapat melakukan join/unjoin ke booking tertentu.
-owner: pemilik venue yang menyewakan lapangan (field) untuk dibooking.
-Venue
+* user : pengguna biasa yang dapat melakukan booking ke satu field. Dapat melakukan join/unjoin ke booking tertentu.
+* owner: pemilik venue yang menyewakan lapangan (field) untuk dibooking.
+2. Venue
 Atribut tabel venues: id, name, address, phone
 Data tempat sarana olahraga. Dapat berupa kompleks olahraga yang memiliki lebih dari satu lapangan (field) dan jenis olahraga. 
-Field
+3. Field
 Atribut tabel fields: id, name, type
 Field adalah bagian dari Venue. Setiap field akan memiliki type yaitu jenis olahraga yang dimainkan di antaranya : soccer, minisoccer, futsal, basketball, volleyball 
-Booking
+4. Booking
 Atribut tabel bookings: id, user_id, play_date_start, play_date_end, field_id
 Booking adalah jadwal penyewaan atau jadwal main user di field/venue tertentu.
 
 
  
-Minimum Viable Product(MVP): 
-User dapat melakukan pemesanan booking baru (create), lalu update, read dan delete Booking tersebut.  Satu Booking bisa diikuti oleh banyak user.
-User dapat join atau cancel join(unjoin) ke banyak Booking.
-Terdapat endpoint khusus admin tempat penyewaan venue olahraga (user ‘owner’) yang dapat membuat (create), melihat (read) dan mengubah (update) data venue. 
+## Minimum Viable Product(MVP): 
+User dapat melakukan pemesanan booking baru (create), lalu update, read dan delete Booking tersebut.  Satu Booking bisa diikuti oleh banyak user. \break
+User dapat join atau cancel join(unjoin) ke banyak Booking.\break
+Terdapat endpoint khusus admin tempat penyewaan venue olahraga (user ‘owner’) yang dapat membuat (create), melihat (read) dan mengubah (update) data venue. \break
 Membuat dokumentasi API
 Deploy aplikasi API (heroku)
 Restful API
