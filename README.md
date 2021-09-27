@@ -51,42 +51,11 @@ Booking adalah jadwal penyewaan atau jadwal main user di field/venue tertentu.
 * Berikut endpoint api yang bisa jadi contoh: 
 * Base-url : /api/v1
 
+![image](https://user-images.githubusercontent.com/79132450/134944085-5a05acdb-32ba-400d-b874-58b8a2f2b2ee.png)
+![image](https://user-images.githubusercontent.com/79132450/134944126-6a25d017-5730-4984-b9b1-172e3890a2d7.png)
 
-Group endpoint
-endpoint
-Keterangan
-Authentication
-POST /register
-Melakukan pendaftaran user baru dengan memasukan data name, email, dan password. Aplikasi mengirimkan kode OTP ke email user pendaftar.
-POST /login
-Melakukan login dengan memasukkan email dan password. Response : token API (Bearer Token)
-POST /otp-confirmation
-Memverifikasi user baru
-Venues
-GET /venues
-List semua venue/tempat booking olahraga
-POST /venues
-Mendaftarkan venue baru
-GET /venues/:id
-Detail venue dan jadwal booking pada tanggal tertentu (default hari ini)
-POST /venues/:id/bookings
-Membuat jadwal booking di venue untuk tanggal tertentu 
-PUT/PATCH
-/venue/:id
-Mengubah data venue
-Bookings
-GET /bookings
-Menampilkan list booking semuanya
-GET /bookings/:id
-Menampilkan detail booking dengan id tertentu beseta list pemain yang sudah mendaftar.
-PUT /bookings/:id/join
-Mendaftarkan diri untuk jadwal booking tertentu
-PUT /bookings/:id/unjoin
-Tidak jadi mengikuti jadwal booking tertentu
-GET /schedules
-Menampilkan list booking yang diikuti oleh user yang sedang melakukan login
 
-##Contoh ERD
+## Contoh ERD
 ![image](https://user-images.githubusercontent.com/79132450/134943686-b698c68f-9f46-43bc-9f67-f93e281460bf.png)
 
 ## Referensi (contoh) Dokumentasi API
